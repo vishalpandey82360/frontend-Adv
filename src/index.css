@@ -17,6 +17,9 @@ html,
   flex-wrap: wrap;
   padding: 20px;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  
 
 }
 
@@ -42,6 +45,7 @@ html,
   padding: 20px;
   border-color: #222;
   background-color: #466;
+  
 }
 .card button{
   width: 70px;
