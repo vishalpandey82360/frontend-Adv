@@ -12,6 +12,7 @@ const App = () => {
       <Card user="londer pink"  img="https://plus.unsplash.com/premium_photo-1738772657819-8f58f03017b7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwxMTJ8fHxlbnwwfHx8fHw%3D"/>
       <Card user="hey ji"  img="https://images.unsplash.com/photo-1786723221846-1b4f27748243?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMXx8fGVufDB8fHx8fA%3D%3D"/>
       <Card/>
+      
     </div>
     
   )
