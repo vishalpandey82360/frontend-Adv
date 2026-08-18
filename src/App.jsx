@@ -1,15 +1,12 @@
 
 
 import React from 'react'
-import Card from    "./components/navbar"
-import hello from './components/insta1.jsx'
+import hello from './components/insta1'
 
 const App = () => {
   return (
     <div>
-      //
-       < hello/>
-      
+  <hello/>
     </div>
     
   )

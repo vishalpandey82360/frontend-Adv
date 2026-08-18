@@ -1,9 +1,12 @@
-import React, { useState, useEffect, useRef } from 'react';
-import './InstaFeed.css';
+
 import React from 'react'
 
-const hello = () => {// --- Sample Data ---
+  
+const hello = (props) => {
+
   const [stories, setStories] = useState([
+
+  
     {
       id: 1,
       username: "alex_travels",
@@ -152,7 +155,7 @@ const hello = () => {// --- Sample Data ---
   const currentUser = stories[currentStoryIndex];
   const currentItem = currentUser?.items[currentItemIndex];
   return (
-    <div className='insta-container'>
+    <div>
         {/* App Header */}
       <header className="app-header">
         <h1 className="logo">Instagram</h1>
@@ -276,5 +279,6 @@ const hello = () => {// --- Sample Data ---
 }
 
 export default hello
+
 
 
