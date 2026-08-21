@@ -7,6 +7,7 @@ const App = () => {
   return (
     <div>
   <hello/>
+  <Card/>
     </div>
     
   )
