@@ -8,6 +8,8 @@ const App = () => {
     <div>
   <hello/>
   <Card/>
+  <card/>
+  <youtube/>
     </div>
     
   )
