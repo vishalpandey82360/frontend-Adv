@@ -1,20 +1,20 @@
 
 
 import React from 'react'
-import hello from './components/insta1'
+import Navbar from "./components/youtube";
 
-const App = () => {
+function App() {
   return (
-    <div>
-  <hello/>
-  <Card/>
-  <card/>
-  <youtube/>
-    </div>
-    
-  )
+    <>
+      <Navbar />
+
+      <main>
+        <h1>YouTube Clone</h1>
+      </main>
+    </>
+  );
 }
 
-export default App
+export default App;
 
 

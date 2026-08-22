@@ -1,130 +1,68 @@
-import React from 'react'
+import React from "react";
+import {
+  Menu,
+  Search,
+  Mic,
+  Video,
+  Bell,
+  UserCircle,
+} from "lucide-react";
+import "./Navbar.css";
 
-const youtube = () => {
+const Navbar = () => {
   return (
-    <div>
-      <button>search</button>
-      <h1>YOUTUBE</h1>
-          {/* App Header */}
-      <header className="app-header">
-        <h1 className="logo">Instagram</h1>
-        <div className="header-icons">
-          <button aria-label="Notifications">❤️</button>
-          <button aria-label="Direct Messages">💬</button>
+    <nav className="youtube-navbar">
+
+      {/* Left Section */}
+      <div className="navbar-left">
+        <button className="icon-btn">
+          <Menu size={24} />
+        </button>
+
+        <div className="youtube-logo">
+          <div className="youtube-icon">▶</div>
+          <span>YouTube</span>
         </div>
-      </header>
+      </div>
 
-      {/* Stories Bar */}
-      <section className="stories-bar">
-        {stories.map((user, idx) => (
-          <div
-            key={user.id}
-            className="story-avatar-wrapper"
-            onClick={() => openStory(idx)}
-          >
-            <div className={`avatar-ring ${user.seen ? "seen" : ""}`}>
-              <img src={user.avatar} alt={user.username} />
-            </div>
-            <span className="story-username">{user.username}</span>
-          </div>
-        ))}
-      </section>
+      {/* Center Section */}
+      <div className="navbar-center">
+        <div className="search-box">
+          <input
+            type="text"
+            placeholder="Search"
+          />
 
-      {/* Video Feed */}
-      <main className="video-feed">
-        {videoPosts.map((post) => (
-          <article key={post.id} className="video-card">
-            <div className="video-card-header">
-              <img
-                src={post.avatar}
-                className="avatar-small"
-                alt={post.username}
-              />
-              <span className="username">{post.username}</span>
-            </div>
-            <div className="video-wrapper">
-              <video
-                src={post.videoUrl}
-                controls
-                playsInline
-                loop
-                preload="metadata"
-              />
-            </div>
-            <p className="video-caption">
-              <strong>{post.username}</strong> {post.caption}
-            </p>
-          </article>
-        ))}
-      </main>
-
-      {/* Fullscreen Story Modal */}
-      {modalOpen && (
-        <div className="story-modal active">
-          <div
-            className="story-card"
-            onMouseDown={handlePause}
-            onMouseUp={handleResume}
-            onTouchStart={handlePause}
-            onTouchEnd={handleResume}
-          >
-            {/* Progress Bars */}
-            <div className="progress-bar-container">
-              {currentUser.items.map((_, idx) => (
-                <div key={idx} className="progress-segment">
-                  <div
-                    className="progress-fill"
-                    style={{
-                      width:
-                        idx < currentItemIndex
-                          ? "100%"
-                          : idx === currentItemIndex
-                          ? `${progress}%`
-                          : "0%",
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Story Header */}
-            <div className="story-user-header">
-              <img
-                src={currentUser.avatar}
-                alt={currentUser.username}
-                className="avatar-small"
-              />
-              <span className="username">{currentUser.username}</span>
-              <button className="close-btn" onClick={closeStory}>
-                &times;
-              </button>
-            </div>
-
-            {/* Story Media */}
-            <div className="story-media-container">
-              <img src={currentItem.url} alt="Story Media" />
-            </div>
-
-            {/* Tap Navigation Overlays */}
-            <div
-              className="tap-zone tap-left"
-              onClick={(e) => {
-                e.stopPropagation();
-                prevStory();
-              }}
-            />
-            <div
-              className="tap-zone tap-right"
-              onClick={(e) => {
-                e.stopPropagation();
-                nextStory();
-              }}
-            />
-          </div>
+          <button className="search-btn">
+            <Search size={22} />
+          </button>
         </div>
-      )}
-    </div>
-  )
-}
 
-export default youtube
+        <button className="mic-btn">
+          <Mic size={21} />
+        </button>
+      </div>
+
+      {/* Right Section */}
+      <div className="navbar-right">
+
+        <button className="create-btn">
+          <Video size={21} />
+          <span>Create</span>
+        </button>
+
+        <button className="icon-btn notification">
+          <Bell size={23} />
+          <span className="notification-count">3</span>
+        </button>
+
+        <button className="profile-btn">
+          <UserCircle size={32} />
+        </button>
+
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
