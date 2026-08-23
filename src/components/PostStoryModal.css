@@ -1,0 +1,260 @@
+/* Post Story Modal */
+.post-story-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: fadeIn 0.2s ease-out;
+}
+
+.post-story-modal {
+  background: #1e1e1e;
+  border: 1px solid #333333;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 680px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.post-story-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid #2e2e2e;
+}
+
+.post-story-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+}
+
+.sparkle-icon {
+  color: #f09433;
+}
+
+.post-story-title h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.post-story-close-btn {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-story-close-btn:hover {
+  background: #333;
+  color: #fff;
+}
+
+.post-story-body {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Preview Box */
+.story-create-preview {
+  position: relative;
+  width: 100%;
+  height: 340px;
+  background: #111;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid #333;
+}
+
+.story-create-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-caption-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 10px;
+  right: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+}
+
+.preview-caption-badge p {
+  margin: 0;
+}
+
+.preview-overlay-tag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #aaa;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+/* Controls */
+.story-create-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-label {
+  font-size: 13px;
+  color: #bbb;
+  font-weight: 500;
+  margin-top: 4px;
+}
+
+.preset-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.preset-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #2a2a2a;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  padding: 6px 8px;
+  color: #eee;
+  font-size: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.preset-chip img {
+  width: 28px;
+  height: 28px;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.preset-chip.active {
+  border-color: #e6683c;
+  background: rgba(230, 104, 60, 0.15);
+  color: #fff;
+}
+
+.custom-url-input-box {
+  display: flex;
+  align-items: center;
+  background: #2a2a2a;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  padding: 0 10px;
+}
+
+.custom-url-input-box .input-icon {
+  color: #888;
+  margin-right: 6px;
+}
+
+.custom-url-input-box input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 8px 0;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+}
+
+.caption-input {
+  background: #2a2a2a;
+  border: 1px solid #3d3d3d;
+  border-radius: 8px;
+  padding: 9px 12px;
+  color: #fff;
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.caption-input:focus {
+  border-color: #3ea6ff;
+}
+
+.post-story-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.cancel-btn {
+  background: #2a2a2a;
+  border: 1px solid #3d3d3d;
+  color: #eee;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.cancel-btn:hover {
+  background: #333;
+}
+
+.publish-story-btn {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  border: none;
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.publish-story-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 600px) {
+  .post-story-body {
+    grid-template-columns: 1fr;
+  }
+  .story-create-preview {
+    height: 200px;
+  }
+}

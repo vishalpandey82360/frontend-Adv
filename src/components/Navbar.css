@@ -1,13 +1,13 @@
-/* YouTube Navbar Styles */
+/* YouTube Navbar Styles with Instagram Story Support */
 .youtube-navbar {
-  height: 64px;
+  height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 20px;
-  background: #ffffff;
-  border-bottom: 1px solid #eeeeee;
+  padding: 0 18px;
+  background: #0f0f0f;
+  border-bottom: 1px solid #272727;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -17,7 +17,7 @@
 .navbar-left {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
 }
 
 .icon-btn {
@@ -26,35 +26,54 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .icon-btn:hover {
-  background: #f2f2f2;
+  background: #272727;
 }
 
 .youtube-logo {
   display: flex;
   align-items: center;
-  gap: 5px;
-  font-size: 21px;
-  font-weight: 700;
-  color: #111;
+  gap: 6px;
+  cursor: pointer;
 }
 
 .youtube-icon {
-  width: 34px;
-  height: 24px;
-  border-radius: 7px;
+  width: 30px;
+  height: 22px;
+  border-radius: 6px;
   background: #ff0000;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 13px;
+  font-size: 11px;
+}
+
+.logo-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+}
+
+.story-badge-live {
+  background: linear-gradient(45deg, #f09433, #dc2743);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 10px;
+  margin-left: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 /* CENTER */
@@ -62,32 +81,44 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  width: 50%;
-  max-width: 700px;
+  width: 45%;
+  max-width: 600px;
 }
 
 .search-box {
-  height: 42px;
+  height: 40px;
   width: 100%;
   display: flex;
-  border: 1px solid #cccccc;
-  border-radius: 24px;
+  border: 1px solid #303030;
+  border-radius: 20px;
   overflow: hidden;
+  background: #121212;
+}
+
+.search-box:focus-within {
+  border-color: #1c62b9;
 }
 
 .search-box input {
   flex: 1;
   border: none;
   outline: none;
-  padding: 0 18px;
-  font-size: 16px;
+  padding: 0 16px;
+  font-size: 15px;
+  background: transparent;
+  color: #fff;
+}
+
+.search-box input::placeholder {
+  color: #888;
 }
 
 .search-btn {
-  width: 65px;
+  width: 60px;
   border: none;
-  border-left: 1px solid #ddd;
-  background: #f8f8f8;
+  border-left: 1px solid #303030;
+  background: #222222;
+  color: #f1f1f1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,23 +126,25 @@
 }
 
 .search-btn:hover {
-  background: #eeeeee;
+  background: #2b2b2b;
 }
 
 .mic-btn {
-  width: 42px;
-  height: 42px;
+  width: 40px;
+  height: 40px;
   border: none;
   border-radius: 50%;
-  background: #f2f2f2;
+  background: #222222;
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .mic-btn:hover {
-  background: #e5e5e5;
+  background: #333333;
 }
 
 /* RIGHT */
@@ -121,22 +154,103 @@
   gap: 12px;
 }
 
+.create-menu-wrapper {
+  position: relative;
+}
+
 .create-btn {
-  height: 40px;
-  padding: 0 16px;
+  height: 36px;
+  padding: 0 14px;
   border: none;
-  border-radius: 22px;
-  background: #f2f2f2;
+  border-radius: 18px;
+  background: #272727;
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: 7px;
-  font-size: 14px;
+  gap: 6px;
+  font-size: 13px;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
 .create-btn:hover {
-  background: #e5e5e5;
+  background: #383838;
+}
+
+/* Create Dropdown */
+.create-dropdown-menu {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  width: 250px;
+  background: #212121;
+  border: 1px solid #3d3d3d;
+  border-radius: 12px;
+  padding: 8px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  background: none;
+  border: none;
+  border-radius: 8px;
+  color: #eee;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: #333333;
+}
+
+.dropdown-item strong {
+  display: block;
+  font-size: 13px;
+  color: #fff;
+}
+
+.dropdown-item p {
+  margin: 2px 0 0;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.dropdown-icon-glow {
+  color: #f09433;
+}
+
+/* Quick Story Button */
+.quick-story-btn {
+  height: 36px;
+  padding: 0 12px;
+  border: 1px solid #f09433;
+  background: rgba(240, 148, 51, 0.1);
+  color: #f09433;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.quick-story-btn:hover {
+  background: linear-gradient(45deg, #f09433, #dc2743);
+  color: #ffffff;
+  border-color: transparent;
+  transform: translateY(-1px);
 }
 
 .notification {
@@ -145,8 +259,8 @@
 
 .notification-count {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 4px;
+  right: 4px;
   min-width: 16px;
   height: 16px;
   padding: 0 3px;
@@ -154,47 +268,92 @@
   background: #cc0000;
   color: white;
   font-size: 10px;
+  font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.profile-btn {
-  border: none;
-  background: transparent;
-  cursor: pointer;
+/* Profile Story Container */
+.profile-story-container {
   display: flex;
   align-items: center;
-  border-radius: 10%;
+  justify-content: center;
+}
+
+.navbar-story-ring {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 2px;
+  transition: transform 0.2s ease;
+}
+
+.navbar-story-ring:hover {
+  transform: scale(1.08);
+}
+
+/* Instagram-style Ring States */
+.ring-unseen {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  box-shadow: 0 0 10px rgba(220, 39, 67, 0.6);
+  animation: navbarRingGlow 2s infinite alternate;
+}
+
+@keyframes navbarRingGlow {
+  0% {
+    box-shadow: 0 0 4px rgba(240, 148, 51, 0.4);
+  }
+  100% {
+    box-shadow: 0 0 14px rgba(220, 39, 67, 0.8);
+  }
+}
+
+.ring-seen {
+  background: #555555;
+}
+
+.ring-idle {
+  background: #272727;
+}
+
+.navbar-profile-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #0f0f0f;
+  background: #222;
+}
+
+.story-pulse-dot {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 10px;
+  height: 10px;
+  background: #ff0055;
+  border-radius: 50%;
+  border: 1.5px solid #0f0f0f;
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .youtube-navbar {
-    padding: 0 10px;
-  }
-
-  .navbar-center {
-    width: auto;
-    flex: 1;
-    margin: 0 10px;
-  }
-
-  .search-box {
-    border: none;
-  }
-
-  .search-box input {
+@media (max-width: 860px) {
+  .quick-story-btn span {
     display: none;
   }
-
-  .search-btn {
-    border: none;
-    width: 42px;
-    background: transparent;
+  .quick-story-btn {
+    padding: 0 8px;
   }
+}
 
-  .mic-btn {
+@media (max-width: 768px) {
+  .navbar-center {
     display: none;
   }
 
@@ -203,27 +362,12 @@
   }
 
   .create-btn {
-    width: 40px;
+    width: 36px;
     padding: 0;
     justify-content: center;
-    background: transparent;
   }
 
-  .youtube-logo span {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .navbar-left {
-    gap: 5px;
-  }
-
-  .navbar-right {
-    gap: 3px;
-  }
-
-  .notification {
-    display: none;
+  .logo-title {
+    font-size: 17px;
   }
 }
