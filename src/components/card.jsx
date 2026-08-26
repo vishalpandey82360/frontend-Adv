@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Heart, Plus, ShoppingBag, Star } from "lucide-react";
 
-export const PRODUCTS = [
+const PRODUCTS = [
   {
     id: 1,
     name: "Cloud Knit Sweater",

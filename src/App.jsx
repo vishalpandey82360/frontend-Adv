@@ -4,6 +4,7 @@ import StoriesBar from "./components/StoriesBar";
 import StoryModal from "./components/StoryModal";
 import PostStoryModal from "./components/PostStoryModal";
 import Footer from "./components/Footer";
+import ProductGrid from "./components/card";
 import { Play, Eye, ThumbsUp, MessageSquare, Share2 } from "lucide-react";
 import "./App.css";
 
@@ -229,6 +230,8 @@ function App() {
 
       {/* Main Content Area */}
       <main className="main-content">
+        <ProductGrid />
+
         {/* Category Pills Bar */}
         <div className="category-pills">
           {CATEGORIES.map((cat) => (
