@@ -49,13 +49,17 @@
   line-height: 1;
 }
 
+button,
+.shop-link {
+  cursor: pointer;
+}
+
 .shop-link {
   border: 0;
   border-bottom: 1px solid #e5a45d;
   padding: 5px 0;
   background: transparent;
   color: #f5f0e8;
-  cursor: pointer;
   font-size: 13px;
 }
 
