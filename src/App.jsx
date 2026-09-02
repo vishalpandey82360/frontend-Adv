@@ -5,6 +5,7 @@ import StoryModal from "./components/StoryModal";
 import PostStoryModal from "./components/PostStoryModal";
 import Footer from "./components/Footer";
 import ProductGrid from "./components/card";
+import HistorySidebar from "./components/HistorySidebar";
 import { Play, Eye, ThumbsUp, MessageSquare, Share2 } from "lucide-react";
 import "./App.css";
 
@@ -230,10 +231,13 @@ function App() {
 
       {/* Main Content Area */}
       <main className="main-content">
-        <ProductGrid />
+        <div className="content-shell">
+          <HistorySidebar />
+          <div className="content-main">
+            <ProductGrid />
 
-        {/* Category Pills Bar */}
-        <div className="category-pills">
+            {/* Category Pills Bar */}
+            <div className="category-pills">
           {CATEGORIES.map((cat) => (
             <button
               key={cat}
@@ -245,71 +249,73 @@ function App() {
           ))}
         </div>
 
-        {/* Video Cards Grid */}
-        <div className="video-grid">
-          {SAMPLE_VIDEOS.map((video) => {
-            const channelStoryIndex = stories.findIndex(
-              (s) => s.username === video.channel
-            );
-            const channelHasActiveStory = channelStoryIndex !== -1;
-            const channelStorySeen =
-              channelHasActiveStory && stories[channelStoryIndex]?.seen;
+            {/* Video Cards Grid */}
+            <div className="video-grid">
+              {SAMPLE_VIDEOS.map((video) => {
+                const channelStoryIndex = stories.findIndex(
+                  (s) => s.username === video.channel
+                );
+                const channelHasActiveStory = channelStoryIndex !== -1;
+                const channelStorySeen =
+                  channelHasActiveStory && stories[channelStoryIndex]?.seen;
 
-            return (
-              <div key={video.id} className="video-card">
-                <div className="thumbnail-wrapper">
-                  <img
-                    src={video.thumbnail}
-                    alt={video.title}
-                    className="video-thumbnail"
-                  />
-                  <span className="duration-badge">{video.duration}</span>
-                </div>
-
-                <div className="video-info">
-                  {/* Channel Avatar with Story Ring */}
-                  <div
-                    className={`channel-story-ring ${
-                      channelHasActiveStory
-                        ? channelStorySeen
-                          ? "ring-seen"
-                          : "ring-active"
-                        : ""
-                    }`}
-                    onClick={() => {
-                      if (channelHasActiveStory) {
-                        handleOpenStory(channelStoryIndex);
-                      }
-                    }}
-                    title={
-                      channelHasActiveStory
-                        ? "Click to view " + video.channel + "'s Story"
-                        : video.channel
-                    }
-                  >
-                    <img
-                      src={video.channelAvatar}
-                      alt={video.channel}
-                      className="channel-avatar"
-                    />
-                  </div>
-
-                  <div className="video-details">
-                    <h3 className="video-title">{video.title}</h3>
-                    <div className="channel-meta">
-                      <span className="channel-name">{video.channel}</span>
-                      {channelHasActiveStory && !channelStorySeen && (
-                        <span className="story-chip">Story</span>
-                      )}
+                return (
+                  <div key={video.id} className="video-card">
+                    <div className="thumbnail-wrapper">
+                      <img
+                        src={video.thumbnail}
+                        alt={video.title}
+                        className="video-thumbnail"
+                      />
+                      <span className="duration-badge">{video.duration}</span>
                     </div>
-                    <p className="video-stats">
-                      {video.views} • {video.timestamp}
-                    </p>
+
+                    <div className="video-info">
+                      {/* Channel Avatar with Story Ring */}
+                      <div
+                        className={`channel-story-ring ${
+                          channelHasActiveStory
+                            ? channelStorySeen
+                              ? "ring-seen"
+                              : "ring-active"
+                            : ""
+                        }`}
+                        onClick={() => {
+                          if (channelHasActiveStory) {
+                            handleOpenStory(channelStoryIndex);
+                          }
+                        }}
+                        title={
+                          channelHasActiveStory
+                            ? "Click to view " + video.channel + "'s Story"
+                            : video.channel
+                        }
+                      >
+                        <img
+                          src={video.channelAvatar}
+                          alt={video.channel}
+                          className="channel-avatar"
+                        />
+                      </div>
+
+                      <div className="video-details">
+                        <h3 className="video-title">{video.title}</h3>
+                        <div className="channel-meta">
+                          <span className="channel-name">{video.channel}</span>
+                          {channelHasActiveStory && !channelStorySeen && (
+                            <span className="story-chip">Story</span>
+                          )}
+                        </div>
+                        <p className="video-stats">
+                          {video.views} • {video.timestamp}
+                        </p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-            );
-          })}
+                );
+              })}
+            </div>
+          </div>
         </div>
       </main>
 
