@@ -6,6 +6,7 @@ import PostStoryModal from "./components/PostStoryModal";
 import Footer from "./components/Footer";
 import ProductGrid from "./components/card";
 import HistorySidebar from "./components/HistorySidebar";
+import AuthPage from "./components/AuthPage";
 import { Play, Eye, ThumbsUp, MessageSquare, Share2 } from "lucide-react";
 import "./App.css";
 
@@ -145,6 +146,9 @@ const SAMPLE_VIDEOS = [
 const CATEGORIES = ["All", "React", "Tech", "Design", "Gaming", "Cooking", "Live", "Podcasts", "Music"];
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(
+    () => localStorage.getItem("youtube-stories-authenticated") === "true"
+  );
   const [stories, setStories] = useState(INITIAL_STORIES);
   const [activeStoryUserIndex, setActiveStoryUserIndex] = useState(null);
   const [isPostStoryOpen, setIsPostStoryOpen] = useState(false);
@@ -212,6 +216,10 @@ function App() {
       })
     );
   };
+
+  if (!isAuthenticated) {
+    return <AuthPage onAuthenticated={() => setIsAuthenticated(true)} />;
+  }
 
   return (
     <div className="app-root">
