@@ -27,6 +27,11 @@ function AuthPage({ onAuthenticated }) {
       return;
     }
 
+    if (form.password.length < 8) {
+      setError("Your password must be at least 8 characters.");
+      return;
+    }
+
     localStorage.setItem("youtube-stories-authenticated", "true");
     onAuthenticated();
   };
@@ -101,7 +106,7 @@ function AuthPage({ onAuthenticated }) {
               <span>Password</span>
               <div className="auth-input-wrap">
                 <LockKeyhole size={17} />
-                <input name="password" type="password" placeholder="At least 8 characters" value={form.password} onChange={updateField} autoComplete={isSignUp ? "new-password" : "current-password"} />
+                <input name="password" type="password" minLength={8} placeholder="At least 8 characters" value={form.password} onChange={updateField} autoComplete={isSignUp ? "new-password" : "current-password"} />
               </div>
             </label>
 
@@ -114,7 +119,16 @@ function AuthPage({ onAuthenticated }) {
           </form>
 
           <p className="auth-legal">By continuing, you agree to our Terms and Privacy Policy.</p>
-          <button className="auth-demo" type="button" onClick={onAuthenticated}>Continue with demo account</button>
+          <button
+            className="auth-demo"
+            type="button"
+            onClick={() => {
+              localStorage.setItem("youtube-stories-authenticated", "true");
+              onAuthenticated();
+            }}
+          >
+            Continue with demo account
+          </button>
         </div>
       </section>
     </main>

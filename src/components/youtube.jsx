@@ -7,6 +7,7 @@ import {
   Bell,
   PlusCircle,
   Sparkles,
+  LogOut,
 } from "lucide-react";
 import "./Navbar.css";
 
@@ -15,6 +16,7 @@ const Navbar = ({
   hasActiveStories = true,
   onOpenUserStory,
   onOpenCreateStory,
+  onSignOut,
 }) => {
   const [showCreateDropdown, setShowCreateDropdown] = useState(false);
 
@@ -109,6 +111,10 @@ const Navbar = ({
         <button className="icon-btn notification" aria-label="Notifications">
           <Bell size={21} />
           <span className="notification-count">3</span>
+        </button>
+
+        <button className="icon-btn" onClick={onSignOut} aria-label="Sign out" title="Sign out">
+          <LogOut size={19} />
         </button>
 
         {/* Profile Avatar with Instagram Story Ring */}

@@ -221,6 +221,11 @@ function App() {
     return <AuthPage onAuthenticated={() => setIsAuthenticated(true)} />;
   }
 
+  const handleSignOut = () => {
+    localStorage.removeItem("youtube-stories-authenticated");
+    setIsAuthenticated(false);
+  };
+
   return (
     <div className="app-root">
       {/* Top Navbar with Profile Story Ring Indicator */}
@@ -228,6 +233,7 @@ function App() {
         userStory={userStory}
         onOpenUserStory={handleOpenUserStory}
         onOpenCreateStory={() => setIsPostStoryOpen(true)}
+        onSignOut={handleSignOut}
       />
 
       {/* Instagram Story Tray at Top */}
