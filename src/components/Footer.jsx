@@ -78,6 +78,28 @@ const Footer = () => {
           </div>
         </div>
 
+        {/* About Us */}
+        <div className="footer-section">
+          <h3 className="footer-heading">About Us</h3>
+          <p className="about-text">
+            A modern video sharing platform built with cutting-edge web technologies. Our mission is to provide a seamless and intuitive experience for discovering and sharing content.
+          </p>
+          <div className="about-features">
+            <div className="feature-item">
+              <span className="feature-icon">📺</span>
+              <span>High Quality</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">⚡</span>
+              <span>Fast Loading</span>
+            </div>
+            <div className="feature-item">
+              <span className="feature-icon">🔒</span>
+              <span>Secure</span>
+            </div>
+          </div>
+        </div>
+
         {/* Quick Links */}
         <div className="footer-section">
           <h3 className="footer-heading">Quick Links</h3>

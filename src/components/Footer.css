@@ -13,7 +13,7 @@
   margin: 0 auto;
   padding: 0 24px 40px;
   display: grid;
-  grid-template-columns: 2fr 1fr 1.2fr 1.8fr;
+  grid-template-columns: 2fr 1.2fr 1fr 1.2fr 1.8fr;
   gap: 40px;
 }
 
@@ -228,6 +228,43 @@
 
 .footer-locale:hover {
   color: #ffffff;
+}
+
+/* About Section */
+.about-text {
+  font-size: 14px;
+  color: #aaaaaa;
+  line-height: 1.6;
+  margin: 0 0 16px;
+}
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #f1f1f1;
+  padding: 8px;
+  border-radius: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.feature-item:hover {
+  background-color: rgba(255, 0, 0, 0.1);
+  transform: translateX(4px);
+}
+
+.feature-icon {
+  font-size: 18px;
+  display: inline-block;
+  min-width: 24px;
 }
 
 /* Responsive Breakpoints */
